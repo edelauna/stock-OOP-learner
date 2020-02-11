@@ -1,12 +1,24 @@
+const readFromYaml = require('../../svcs/readFromYaml')
+let CONF = readFromYaml('parsingreports_conf.yaml');
+
 class Financials{
-  constructor(data, key){
+  constructor(data){
+    const valueKey = this.returnKey(this.constructor.name)
+    
     //hard code date
-    this.date = data["date"];
-    this.value = data[key];
+    const dateKey = this.returnKey("Date")
+    
+    this.date = data[dateKey];
+    this.value = valueKey ? data[valueKey] : null;
+
+    //standardize nulls
+    if(this.value == CONF.null){
+      this.value = null;
+    }
   }
 
-  returnValueOrNull(data, key){
-    return data.hasOwnProperty(key) ? data[key] : null;
+  returnKey(name){
+    return CONF.keys.hasOwnProperty(name) ? CONF.keys[name] : null;
   }
 }
 

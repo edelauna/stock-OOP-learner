@@ -1,7 +1,9 @@
 class Security {
   
   //Model
-  #balanceSheet
+  #balanceSheet = {
+    total_Assets : []
+  }
 
   constructor(){
 

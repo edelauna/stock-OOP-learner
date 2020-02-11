@@ -1,8 +1,8 @@
-const Financials = require('./Financials');
+const Financials = require('../../../../Financials');
 
 class Short_Term_Investments extends Financials {
-  constructor(date, sum, opts){
-    super(date, sum);
+  constructor(date){
+    super(date);
   }
 }
 

@@ -1,8 +1,8 @@
-const Financials = require('./Financials');
+const Financials = require('../../../../Financials');
 
 class Cash extends Financials {
-  constructor(data, key){
-    super(data, key);
+  constructor(data){
+    super(data);
   }
 }
 
