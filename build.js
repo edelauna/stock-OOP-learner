@@ -5,7 +5,7 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 //models
-const Cash_Cash_Equivalents_And_Short_Term_Investments = require('./model/financial-indicator/Balance_Sheet/Total_Assets/Current_Assets/Cash_Cash_Equivalents_And_Short_Term_Investments/Cash_Cash_Equivalents_And_Short_Term_Investments');
+const Security = require('./model/Security');
 
 let CONF;
 try {
@@ -30,7 +30,7 @@ let parseOnce = ((file, reportPath)=>{
       let parseObj = data.reduce((acc, cur, i) => {
           return Object.assign({ [cur[indexes.fin_indicatorName]] : cur[indexes.yeardEndColStart]}, acc);
       }, {});
-      let test = new Cash_Cash_Equivalents_And_Short_Term_Investments(parseObj);
+      let test = new Security(parseObj);
       console.log(date);
     }
   }
